@@ -2,8 +2,8 @@
 
 @section('pageContent')
 <ul>
-    @foreach ($comics as $comic)
-    <li>{{$comic->title}}</li> 
+    @foreach ($comicsItems as $comicsItem)
+    <li>{{$comicsItem->title}}</li> 
     @endforeach
     
 </ul>
