@@ -11,16 +11,20 @@
         <th scope="col">Serie</th>
         <th scope="col">Prezzo</th>
         <th scope="col">Tipo</th>
+        <th scope="col">Visita</th>
+
       </tr>
     </thead>
     <tbody>
-    @foreach ($comicsItems as $comicsItem)
+    @foreach ($comics as $comics)
         <tr>
-            <th>{{$comicsItem->id}}</th>
-            <td>{{$comicsItem->title}}</td>
-            <td>{{$comicsItem->series}}</td>
-            <td>{{$comicsItem->price}}</td>
-            <td>{{$comicsItem->type}}</td>
+            <th>{{$comics->id}}</th>
+            <td>{{$comics->title}}</td>
+            <td>{{$comics->series}}</td>
+            <td>{{$comics->price}}</td>
+            <td>{{$comics->type}}</td>
+            <td><a href="{{route("comics.show", $comics->id)}}"><button type="button" class="btn btn-info">Vai</button></a></td>
+
         </tr>
       @endforeach
     </tbody>

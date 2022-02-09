@@ -14,10 +14,10 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comicsItems = Comic::all();
+        $comics = Comic::all();
         // products. è la cartella dentro views
         // ["comicsItems" => comicsItems]
-        return view("products.index", compact("comicsItems"));
+        return view("comics.index", compact("comics"));
     }
 
     /**
@@ -49,8 +49,9 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        $comicPage = Comic::find($id);
-        return view("products.show", compact("comicPage"));
+        // products. è la cartella dentro views
+        $comics = Comic::find($id);
+        return view("comics.show", compact("comics"));
     }
 
     /**
