@@ -1,9 +1,13 @@
 @extends('layouts.base')
 
 @section('pageContent')
-<h1>Fumetti in vendita</h1>
+<div class="container">
+  <h1>Fumetti in vendita</h1>
+  <a href="{{route("comics.create")}}"><button type="submit" class="btn btn-primary">Crea</button></a>
+</div>
 
-<table class="table">
+
+<table class="table mt-5">
     <thead>
       <tr>
         <th scope="col">#</th>

@@ -2,8 +2,10 @@
 
 @section('pageContent')
 <h1>Crea un nuovo prodotto</h1>
+<a href="{{route("comics.index")}}"><button type="button" class="btn btn-info">Torna indietro</button></a>
 
-<form>
+<form  action="{{route("comics.store")}}" method="POST" class="mt-5">
+    @csrf
     <div class="form-group">
       <label for="title">Titolo</label>
       <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo">
@@ -46,5 +48,5 @@
 
     <button type="submit" class="btn btn-primary">Crea</button>
   </form>
-
+  
 @endsection
