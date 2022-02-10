@@ -46,9 +46,11 @@ class ComicController extends Controller
         $newComic->series = $data["series"];
         $newComic->sale_date = $data["sale_date"];
         $newComic->type = $data["type"];
+
         if (!empty($data['thumb'])) {
-            $newComic->thumb = $data["thumb"];
+            $newComic->image = $data["thumb"];
         }
+
         $newComic->save();
 
         return redirect()->route('comics.show', $newComic->id);
@@ -63,8 +65,8 @@ class ComicController extends Controller
     public function show($id)
     {
         // products. è la cartella dentro views
-        $comics = Comic::find($id);
-        return view("comics.show", compact("comics"));
+        $comic = Comic::find($id);
+        return view("comics.show", compact("comic"));
     }
 
     /**
@@ -73,9 +75,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view("comics.edit", compact("comic"));
     }
 
     /**
