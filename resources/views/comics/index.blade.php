@@ -17,19 +17,27 @@
         <th scope="col">Tipo</th>
         <th scope="col">Visita</th>
         <th scope="col">Modifica</th>
+        <th scope="col">Cancella</th>
+
 
       </tr>
     </thead>
     <tbody>
-    @foreach ($comics as $comics)
+    @foreach ($comics as $comic)
         <tr>
-            <th>{{$comics->id}}</th>
-            <td>{{$comics->title}}</td>
-            <td>{{$comics->series}}</td>
-            <td>{{$comics->price}}</td>
-            <td>{{$comics->type}}</td>
-            <td><a href="{{route("comics.show", $comics->id)}}"><button type="button" class="btn btn-info">Vai</button></a></td>
-            <td><a href="{{route("comics.edit", $comics->id)}}"><button type="button" class="btn btn-primary">Modifica</button></a></td>
+            <th>{{$comic->id}}</th>
+            <td>{{$comic->title}}</td>
+            <td>{{$comic->series}}</td>
+            <td>{{$comic->price}}</td>
+            <td>{{$comic->type}}</td>
+            <td><a href="{{route("comics.show", $comic->id)}}"><button type="button" class="btn btn-info">Vai</button></a></td>
+            <td><a href="{{route("comics.edit", $comic->id)}}"><button type="button" class="btn btn-primary">Modifica</button></a></td>
+            <td><form action="{{route("comics.destroy", $comic->id)}}" method="POST">
+              @csrf
+              @method("DELETE")
+              <button type="submit" class="btn btn-danger">Elimina</button>
+            </form></td>
+
 
         </tr>
       @endforeach
