@@ -7,6 +7,7 @@
     <p>{!!$comic->description!!}</p>
     <div>
         <a href="{{route("comics.index")}}"><button type="button" class="btn btn-info">Torna indietro</button></a>
+        
     </div>
 </div>
 
