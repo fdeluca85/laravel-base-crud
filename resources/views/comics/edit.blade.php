@@ -20,7 +20,7 @@
 
     <div class="form-group">
         <label for="sale_date">Data di vendita</label>
-        <input type="date" class="form-control" id="sale_date" name="sale_date">
+        <input input type="datetime" class="form-control" id="sale_date" name="sale_date" value="{{$comic->sale_date}}">
     </div>   
 
     <div class="form-group">
