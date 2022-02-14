@@ -4,7 +4,7 @@
 <div class="container">
     <h1>{{$comic->title}}</h1>
     <img src="{{$comic->thumb}}" alt="{{$comic->title}}">
-    <p>data di uscita  {{$comic->sale_date}}</p>
+    <p>Data di uscita: {{$comic->sale_date}} - Prezzo: {{$comic->price}} €</p>
     <p>{!!$comic->description!!}</p>
     
     <div>
