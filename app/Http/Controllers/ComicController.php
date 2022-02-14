@@ -41,19 +41,19 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        // $newComic = new Comic();
-        // $newComic->title = $data["title"];
-        // $newComic->description = $data["description"];
-        // $newComic->price = $data["price"];
-        // $newComic->series = $data["series"];
-        // $newComic->sale_date = $data["sale_date"];
-        // $newComic->type = $data["type"];
+        $newComic = new Comic();
+        $newComic->title = $data["title"];
+        $newComic->description = $data["description"];
+        $newComic->price = $data["price"];
+        $newComic->series = $data["series"];
+        $newComic->sale_date = $data["sale_date"];
+        $newComic->type = $data["type"];
 
-        // if (!empty($data['thumb'])) {
-        //     $newComic->thumb = $data["thumb"];
-        // }
+        if (!empty($data['thumb'])) {
+            $newComic->thumb = $data["thumb"];
+        }
 
-        // $newComic->save();
+
 
         $request->validate([
             "title" => "required|string|max:100",
@@ -65,9 +65,9 @@ class ComicController extends Controller
             "type" => ["required", Rule::in(["comic book", "graphic novel"])],
         ]);
 
-        $newComic = Comic::create($data);
+        // $newComic = Comic::create($data);
 
-
+        $newComic->save();
         return redirect()->route('comics.show', $newComic->id);
     }
 
@@ -105,18 +105,17 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         $data = $request->all();
-        // $comic->title = $data["title"];
-        // $comic->description = $data["description"];
-        // $comic->price = $data["price"];
-        // $comic->series = $data["series"];
-        // $comic->sale_date = $data["sale_date"];
-        // $comic->type = $data["type"];
+        $comic->title = $data["title"];
+        $comic->description = $data["description"];
+        $comic->price = $data["price"];
+        $comic->series = $data["series"];
+        $comic->sale_date = $data["sale_date"];
+        $comic->type = $data["type"];
 
-        // if (!empty($data['thumb'])) {
-        //     $comic->thumb = $data["thumb"];
-        // }
+        if (!empty($data['thumb'])) {
+            $comic->thumb = $data["thumb"];
+        }
 
-        // $comic->save();
 
         $request->validate([
             "title" => "required|string|max:100",
@@ -127,8 +126,8 @@ class ComicController extends Controller
             "sale_date" => "required|date",
             "type" => ["required", Rule::in(["comic book", "graphic novel"])],
         ]);
-
-        $comic->update($data);
+        $comic->save();
+        // $comic->update($data);
         return redirect()->route('comics.show', $comic->id);
     }
 
