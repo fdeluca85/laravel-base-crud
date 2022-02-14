@@ -25,6 +25,7 @@
     <div class="form-group">
         <label for="type">Tipologia</label>
         <select class="form-control" id="type" name="type">
+            <option value="" disabled selected>Definisci la tipologia</option>
             <option value="comic book">Comic book</option>
             <option value="graphic novel">Graphic novel</option>
         </select>
